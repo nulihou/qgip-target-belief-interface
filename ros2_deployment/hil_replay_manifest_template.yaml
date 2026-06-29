@@ -1,0 +1,68 @@
+manifest_version: 2026-06-04-pre-real-hil-v1
+purpose: Hardware-in-the-loop replay and rosbag evidence manifest before any physical closed-loop claim.
+boundary: Shadow replay only; this manifest does not certify ROS2 build success, actuator motion, or physical robot validation.
+
+bag:
+  bag_id: TBD_preflight_robot1_leader2_distractor3
+  source_stage: B_offline_bag_or_C_hil_shadow
+  bag_directory: TBD_absolute_or_repository_relative_path
+  record_command_profile: multi_robot_preflight
+  play_command: ros2 bag play <bag_dir> --clock
+  clock_required: true
+  use_sim_time: true
+  minimum_duration_s: 60
+  required_topics:
+    - /tf
+    - /tf_static
+    - /robot_1/odom
+    - /robot_2/odom
+    - /robot_3/odom
+    - /robot_1/detections_raw
+    - /robot_1/detections_faulty
+    - /robot_1/qgip/selected_leader
+    - /robot_1/qgip/pop_state
+    - /robot_1/qgip/mpc_debug
+    - /robot_1/qgip/trial_status
+    - /robot_1/cmd_vel_safe
+    - /robot_1/safety_state
+
+preflight_stack:
+  package: ros2_qgip_stack
+  launch_file: multi_robot_preflight.launch.py
+  follower_ns: /robot_1
+  follower_frame: robot_1/base_link
+  leader_frames: robot_2/base_link,robot_3/base_link
+  leader_ids: robot_2,robot_3
+  max_speed_mps: 0.3
+  results_csv_path: TBD_preflight_results.csv
+
+actuator_bridge:
+  bridge_enabled: false
+  allowed_shadow_command_topic: /robot_1/cmd_vel_safe
+  forbidden_physical_command_topics_before_gate:
+    - /cmd_vel
+    - /drive
+    - /ackermann_cmd
+  operator_enable_required_for_stage_d: true
+
+acceptance_criteria:
+  topic_completeness: all required_topics are present in ros2 bag info output.
+  clock_sync: ros2 bag play is run with --clock and nodes use ROS time when replaying.
+  shadow_command_only: actuator_bridge.bridge_enabled remains false through Stage C HIL replay.
+  safety_state_logged: /robot_1/safety_state is recorded and has non-empty safety_stop and reason fields.
+  command_safety: /robot_1/cmd_vel_safe remains within max_speed_mps and stops during LOST or unsafe headway.
+  timing_evidence: latency_mean_ms, latency_p95_ms, latency_p99_ms, and watchdog_triggers are archived.
+  runtime_telemetry: runtime_telemetry.csv follows ros2_runtime_telemetry_schema.csv and includes frame_drop_count, clock_drift_p95_ms, cmd_vel_safe_age_p95_ms, cpu_load_mean_percent, gpu_load_mean_percent, and gpu_memory_peak_mb.
+  contact_boundary: no physical contact claim is made from Stage B or Stage C replay evidence.
+  archive_completeness: bag metadata, topic list, launch arguments, results CSV, and incident report are deposited.
+
+artifacts_to_archive:
+  - rosbag2 metadata.yaml
+  - ros2 bag info text export
+  - ros2 topic list text export
+  - ros2 topic hz text exports for required diagnostic topics
+  - launch command and argument record
+  - real_robot_results_template-compatible CSV
+  - runtime_telemetry.csv following ros2_runtime_telemetry_schema.csv
+  - runtime_telemetry_manifest_template.yaml with robot-specific thresholds filled
+  - incident_report_template.md if any watchdog, near-miss, contact, or operator stop occurs

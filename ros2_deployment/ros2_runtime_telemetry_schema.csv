@@ -1,0 +1,25 @@
+field,definition,unit,type,required,source,acceptance
+trial_id,Unique trial identifier matching the run manifest,none,string,true,run manifest,non-empty and consistent with metric summary
+ros_time_s,ROS time associated with the telemetry sample,s,float,true,ROS clock,monotonic within a trial
+wall_time_s,Wall-clock time on the robot computer,s,float,true,system clock,monotonic within a trial
+topic,ROS topic or subsystem represented by the row,none,string,true,telemetry collector,one of required telemetry topics or system monitor
+message_stamp_s,Header or payload timestamp for the observed message,s,float,true,ROS message,finite when the topic carries timestamps
+receive_stamp_s,Collector receipt timestamp,s,float,true,telemetry collector,finite and not earlier than message_stamp_s after clock correction
+latency_ms,receive_stamp_s minus message_stamp_s after clock correction,ms,float,true,timestamp audit,reported as mean p95 and p99 in metric summary
+interarrival_ms,Elapsed time since the previous message on the same topic,ms,float,true,timestamp audit,used to detect frame drops and stalled topics
+frame_index,Per-topic sequential sample index,count,integer,true,telemetry collector,strictly increasing by topic
+frame_drop_count,Cumulative missing or late-frame count,count,integer,true,timestamp audit,zero or explicitly explained in incident report
+clock_drift_ms,ROS-time versus wall-time drift estimate,ms,float,true,timestamp audit,p95 archived before timing claims
+tf_age_ms,Age of latest follower-leader TF sample,ms,float,true,TF monitor,p95 below trial-specific threshold or incident filed
+selected_leader_age_ms,Age of latest selected-leader diagnostic payload,ms,float,true,/robot_1/qgip/selected_leader,p95 below trial-specific threshold or incident filed
+cmd_vel_safe_age_ms,Age of latest safe shadow command,ms,float,true,/robot_1/cmd_vel_safe,p95 below watchdog timeout before actuator bridge
+watchdog_trigger,Whether the watchdog fired for this sample,boolean,boolean,true,safety supervisor,every trigger appears in safety_state and incident report
+watchdog_reason,Reason emitted by the watchdog or safety supervisor,none,string,true,/robot_1/safety_state,non-empty when watchdog_trigger is true
+safety_state,Serialized safety state for the follower robot,none,string,true,/robot_1/safety_state,contains safety_stop and reason fields
+cpu_percent,Robot-computer CPU load,percent,float,true,system monitor,mean and p95 archived by trial
+gpu_percent,Robot-computer GPU load,percent,float,true,system monitor,mean and p95 archived by trial
+gpu_memory_mb,Robot-computer GPU memory in use,MB,float,true,system monitor,peak archived by trial
+memory_mb,Robot-computer host memory in use,MB,float,true,system monitor,peak archived by trial
+thermal_state,Thermal or throttling state if available,none,string,false,system monitor,reported when available on embedded target
+rosbag_path,Relative or absolute path to the associated rosbag2 directory,none,string,true,rosbag manifest,exists in archived evidence package
+telemetry_source,Collector name or command that produced the row,none,string,true,telemetry collector,one of ros2 bag, ros2 topic hz, diagnostics, tegrastats, nvidia-smi

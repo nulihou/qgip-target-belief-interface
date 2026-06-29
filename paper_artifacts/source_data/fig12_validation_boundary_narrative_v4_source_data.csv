@@ -1,0 +1,9 @@
+stage,status,x,headline,sub,marker,claim_boundary_role,validation_boundary_x
+Gate package,prepared,0.85,A-F gate audit,"23/23 gate rows
+prepared locally",filled,prepared local evidence only,3.35
+Desktop preflight,prepared,2.45,ROS2-less dry run,"12/12 checks pass
+telemetry parser ready",filled,prepared local evidence only,3.35
+Live ROS2/HIL,required,4.55,live timing evidence,"colcon, launch,
+rosbag, HIL logs",open,external live ROS2/HIL or physical evidence still required,3.35
+Physical trial,required,6.35,operator-supervised trials,"trial bags, manifests,
+metrics, incident reports",open,external live ROS2/HIL or physical evidence still required,3.35

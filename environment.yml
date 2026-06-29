@@ -1,0 +1,14 @@
+name: lc_org_env
+channels:
+  - pytorch
+  - defaults
+dependencies:
+  - python=3.8
+  - numpy
+  - networkx
+  - tqdm
+  - scipy
+  - pip
+  - pip:
+    # Do NOT install carla here via pip
+    # We will link to the local egg file

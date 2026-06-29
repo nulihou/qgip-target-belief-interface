@@ -1,0 +1,25 @@
+panel,condition,layer,object_id,object_name,x_m,lane_y,role,note
+a,Nominal,raster,D:/paper/paper3_lc_org_v2.0/RA_L_optimization_20260528/08_paper_ready_outputs/figure_assets/fig2_carla_real/fig2_carla_nominal.png,,,,,CARLA RGB camera screenshot
+a,Nominal,world,ego,Ego,1.8,0.0,ego,same across panels
+a,Nominal,world,leader,Leader,8.6,0.0,leader,same across panels
+a,Nominal,world,other,Veh B,12.9,1.65,other,same across panels
+a,Nominal,controller_plot,001,Ego,0.0,0.0,ego,controller-facing object-list coordinate
+a,Nominal,controller_plot,002,Leader,6.8,0.0,leader,controller-facing object-list coordinate
+a,Nominal,controller_plot,003,Veh B,11.1,1.65,other,controller-facing object-list coordinate
+b,fp_10,raster,D:/paper/paper3_lc_org_v2.0/RA_L_optimization_20260528/08_paper_ready_outputs/figure_assets/fig2_carla_real/fig2_carla_fp10.png,,,,,CARLA RGB camera screenshot
+b,fp_10,world,ego,Ego,1.8,0.0,ego,same across panels
+b,fp_10,world,leader,Leader,8.6,0.0,leader,same across panels
+b,fp_10,world,other,Veh B,12.9,1.65,other,same across panels
+b,fp_10,controller_plot,001,Ego,0.0,0.0,ego,controller-facing object-list coordinate
+b,fp_10,controller_plot,002,Leader,6.8,0.0,leader,controller-facing object-list coordinate
+b,fp_10,controller_plot,003,Veh B,11.1,1.65,other,controller-facing object-list coordinate
+b,fp_10,controller_plot,004,FP,5.7,1.65,fp,controller-facing object-list coordinate
+b,fp_10,world,fp,false positive,7.5,1.65,fp,injected adjacent-lane detection
+c,idswitch,raster,D:/paper/paper3_lc_org_v2.0/RA_L_optimization_20260528/08_paper_ready_outputs/figure_assets/fig2_carla_real/fig2_carla_nominal.png,,,,,CARLA RGB camera screenshot
+c,idswitch,world,ego,Ego,1.8,0.0,ego,same across panels
+c,idswitch,world,leader,Leader,8.6,0.0,leader,same across panels
+c,idswitch,world,other,Veh B,12.9,1.65,other,same across panels
+c,idswitch,controller_plot,001,Ego,0.0,0.0,ego,controller-facing object-list coordinate
+c,idswitch,controller_plot,042,Leader,6.8,0.0,warn,controller-facing object-list coordinate
+c,idswitch,controller_plot,003,Veh B,11.1,1.65,other,controller-facing object-list coordinate
+c,idswitch,world,002->042,leader id swap,8.6,0.0,warn,"same position, different controller-facing ID"

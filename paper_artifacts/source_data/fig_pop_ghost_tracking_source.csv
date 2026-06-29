@@ -1,0 +1,5 @@
+﻿stage,time_s,mode,measurement,belief_x_m,belief_y_m,truth_x_m,truth_y_m,nis,sigma_m,controller
+active update,0.0,TRACK,1,0.0,4.0,0.0,4.1,3.2,0.35,track
+ghost prediction,0.55,GHOST,0,0.25,8.7,0.45,9.1,12.4,1.1,slow
+re-association,1.1,RESET,1,0.85,13.0,0.95,13.2,21.5,0.55,recover
+prolonged loss boundary,1.55,SAFE STOP,0,1.1,15.2,1.35,15.7,24.2,1.45,stop

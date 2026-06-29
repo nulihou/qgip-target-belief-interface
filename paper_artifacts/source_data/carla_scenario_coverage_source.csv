@@ -1,0 +1,8 @@
+scenario_class,conditions,layer,methods,n_per_method,success_rate,collision_rate,lost_rate,near_miss_rate,target_metric,interpretation
+straight/curve following,main_default,planner_input,QGIP / Std KF / Rule,1000,0.735000,0.000000,0.265000,0.000000,LeaderAcc 100.0%,scale sanity
+curve following,raw_glare,raw_sensor_like,Detector/Tracker / QGIP,100,0.76,0.0,0.24,0.0,LeaderAcc 100.0%,detector-level glare approximation
+following with dropout,raw_lidar_dropout,raw_sensor_like,Detector/Tracker / QGIP,100,0.76,0.0,0.24,0.0,LeaderAcc 100.0%,detector-level LiDAR-dropout approximation
+lead braking,fn_50; delay_200,detector/timing,Std KF / IMM-KF / QGIP,300,0.7266666666666667,0.0,0.2733333333333333,0.0,LeaderAcc 100.0%; delay matched,false negatives and 200 ms delay
+adjacent-lane distractor,fp_10,ambiguity,Rule / no-query / QGIP,300,0.73,0.0,0.27,0.0,QGIP LeaderAcc 86.2% vs no-query 53.2%,false-positive ambiguity
+cut-in/cut-out identity,idswitch,ambiguity,Rule / Std KF / QGIP,300,0.73,0.0,0.27,0.0,QGIP LeaderAcc 90.7% vs Std KF 56.0%,ID-switch ambiguity
+combined boundary ambiguity,fp20_idswitch20,boundary,Rule / no-query / QGIP,100,0.77,0.0,0.23,0.0,QGIP LeaderAcc 80.0% vs no-query 47.8%,stronger false positives plus ID switches

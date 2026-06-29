@@ -1,0 +1,66 @@
+manifest_version: 1
+trial:
+  trial_id: ""
+  date_local: ""
+  operator: ""
+  observer: ""
+  location: ""
+  scenario: ""  # straight_following, lead_braking, curved_following, adjacent_lane_distractor, cut_in_cut_out, stop_and_go
+  method: ""  # rule_mpc, std_kf_mpc, imm_kf_mpc, no_query_pop_mpc, full_qgip
+  speed_level: ""  # low, medium
+  repeat_id: null
+  random_seed: null
+
+hardware:
+  follower_profile: "robot_profile_template.yaml"
+  leader_profile: ""
+  distractor_profile: ""
+  test_area_description: ""
+  marked_odd_boundary: ""
+  emergency_stop_operator: ""
+
+software:
+  ros2_distribution: ""
+  qgip_commit_or_archive_id: ""
+  package_version: "ros2_qgip_stack 0.1.0"
+  launch_file: "multi_robot_preflight.launch.py"
+  parameter_file: "experiment_parameters.yaml"
+  robot_profile_file: ""
+
+fault_profile:
+  fault_type: ""  # none, software_dropout, dropout_during_brake, physical_occlusion, false_leader, id_switch, frequent_dropout
+  fault_level: ""
+  dropout_duration_s: null
+  position_noise_std_m: null
+  delay_s: null
+  false_positive_count: null
+  id_switch_enabled: false
+
+logging:
+  rosbag_path: ""
+  run_manifest_path: ""
+  per_frame_csv_path: ""
+  runtime_telemetry_csv_path: ""
+  runtime_telemetry_manifest_path: "runtime_telemetry_manifest_template.yaml"
+  metric_summary_csv_path: ""
+  incident_report_path: ""
+  video_path: ""
+  clock_sync_method: ""
+
+safety_gate:
+  physical_estop_checked: false
+  cmd_vel_shadow_mode_first: true
+  max_speed_mps: null
+  min_headway_abort_m: null
+  min_ttc_abort_s: null
+  operator_line_of_sight: false
+  test_area_clear: false
+
+outcome:
+  completed: null
+  contact: null
+  near_miss: null
+  safety_stop: null
+  lost: null
+  abort_reason: ""
+  notes: ""

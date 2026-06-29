@@ -1,0 +1,10 @@
+edge_type,source,target
+completed_evidence,ODD / split control,bounded CARLA simulation claim
+completed_evidence,Target-consistency evidence,bounded CARLA simulation claim
+completed_evidence,Finite-sample safety interpretation,bounded CARLA simulation claim
+completed_evidence,Uncertainty-monitor evidence,bounded CARLA simulation claim
+completed_evidence,Source-data / provenance audit,bounded CARLA simulation claim
+remaining_requirement,bounded CARLA simulation claim,Live ROS2/HIL timing evidence
+remaining_requirement,bounded CARLA simulation claim,Operator-supervised robot trials
+remaining_requirement,bounded CARLA simulation claim,DOI-backed release record
+boundary,bounded CARLA simulation claim,no physical-validation claim

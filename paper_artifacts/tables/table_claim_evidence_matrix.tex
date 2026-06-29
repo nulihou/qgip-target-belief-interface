@@ -1,0 +1,16 @@
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.22\linewidth} >{\raggedright\arraybackslash}p{0.41\linewidth} >{\raggedright\arraybackslash}p{0.25\linewidth}@{}}
+\toprule
+\textbf{Claim} & \textbf{Evidence} & \textbf{Boundary} \\
+\midrule
+Dataset split is auditable and non-overlapping. & train=4050; val=450; test\_unseen=500 train vs val=0; train vs test\_unseen=0; val vs test\_unseen=0. & Route-level generalization is not claimed as unrestricted deployment. \\
+Nominal low-ambiguity completion is dominated by the shared conservative safety layer. & QGIP, Std-KF, and Rule all have 735/1000 Success, 265/1000 Lost, 0 collisions, 0 near-misses. QGIP mean NIS 0.359; mean min distance 14.98 m. & Not used as the main query-guidance evidence. \\
+The target-interface stack improves over weak selector/KF baselines under ambiguity. & fp\_10: QGIP LeaderAcc 86.2\% vs no-query 53.2\%. idswitch: QGIP 90.7\% vs Std-KF 56.0\%. & Route-level success remains equal because conservative stopping dominates completion. \\
+The accuracy--persistence frontier is real. & SORT+MPC reaches 99.5\% LeaderAcc under idswitch, but QGIP reduces controller-facing switches (39.2 vs 108.8). & Supports a trade-off interpretation, not universal QGIP superiority. \\
+The POP/NIS+MPC contract can be fed by non-learned front ends. & Supplemental $N=100$ front-end runs: SORT + POP/NIS + MPC reaches 90.0\%/95.7\% LeaderAcc on fp\_10/idswitch; ByteTrack-inspired + POP/NIS + MPC reaches 89.2\%/99.5\%. & Supplemental front-end swap, not a replacement for the paired N=300 primary rows. \\
+Semantic-query generalization is not established. & Query-left experiment: GNN selector 49.5\% vs GNN no-query 50.3\%; tracker front ends mostly follow the same-lane vehicle. & Negative boundary result; the paper does not claim broad query-conditioned behavior. \\
+Boundary ambiguity stress preserves the same target-consistency pattern. & QGIP LeaderAcc 80.0\% in fp20+idswitch20. Route success 77.0\%; collision 0.0\%. & Supplemental N=100 stress, not the primary statistical test. \\
+Extended dynamic suite expands coverage and exposes the tracker boundary. & 28 groups, 7200 episodes. SORT+MPC has higher LeaderAcc than default QGIP in cut-in, merge-like, wrong-query, and delayed-query profiles. & Used as failure-mode and limitation evidence, not as a universal QGIP superiority claim. \\
+NIS/mode instrumentation responds to detector degradation, thresholds, and outliers. & Noise 1.0 m: NIS mean 4.389 and p95 12.6. Gate sweep at 0.5 m reduces soft/hard violations from 5.52/1.53 to 0.25/0.09 as gates widen. FP outlier: NIS p95 1621.8. & Closed-loop diagnostic only; NEES and real-sensor calibration are not reported. \\
+Weather-conditioned detector-output degradation is bounded. & 6 groups, 600 episodes. QGIP and detector/tracker are similar; glare LeaderAcc is 94.6\% vs 96.9\%. & Detector-output degradation in CARLA weather; not raw camera/LiDAR robustness. \\
+\bottomrule
+\end{tabular}

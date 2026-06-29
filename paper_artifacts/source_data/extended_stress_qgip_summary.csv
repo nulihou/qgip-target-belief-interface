@@ -1,0 +1,8 @@
+suite,condition_id,label,method,n,success_rate,lost_rate,collision_rate,near_miss_rate,leaderacc_mean,idswitches_mean
+ambiguity,fp_10,Adjacent-lane false positive,qgip,300,0.73,0.27,0.0,0.0,0.8624215918785185,62.54666666666667
+ambiguity,idswitch,ID-switch ambiguity,qgip,300,0.73,0.27,0.0,0.0,0.9067758293373527,39.196666666666665
+detector/timing,fn_50,False-negative detector timing,qgip,300,0.7266666666666667,0.2733333333333333,0.0,0.0,1.0,0.0
+detector/timing,delay_200,200 ms object-message delay,qgip,300,0.7266666666666667,0.2733333333333333,0.0,0.0,1.0,0.0
+raw-like,raw_glare,Glare-like detector degradation,qgip,100,0.76,0.24,0.0,0.0,1.0,0.0
+raw-like,raw_lidar_dropout,LiDAR-dropout-like degradation,qgip,100,0.76,0.24,0.0,0.0,1.0,0.0
+boundary,fp20_idswitch20,Combined boundary ambiguity,qgip,100,0.77,0.23,0.0,0.0,0.8002220690924579,126.54

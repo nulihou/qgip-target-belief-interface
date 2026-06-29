@@ -1,0 +1,13 @@
+check_id,requirement,actual,status,source_artifact,boundary
+trace_row_count,Dry run emits exactly 90 frame-level rows.,rows=90,PASS,real_robot_offline_dryrun_trace.csv,Deterministic offline replay length only.
+selected_leader_all_frames,Selected-leader payload is available on every frame.,leader_id=robot_2 on all frames,PASS,real_robot_offline_dryrun_trace.csv,"Uses scripted TF-like detections, not a learned selector."
+raw_distractor_present,Raw detections include leader and distractor candidates.,raw_count=2 on all frames,PASS,real_robot_offline_dryrun_trace.csv,Synthetic dry-run candidates only.
+dropout_frames_present,Software dropout interval removes measurements for at least 20 frames.,dropout_frames=33,PASS,real_robot_offline_dryrun_trace.csv,"Software dropout is deterministic, not physical occlusion."
+ghost_mode_present,POP/NIS enters GHOST mode during dropout before timeout.,"mode_counts={'TRACKING': 57, 'GHOST': 19, 'LOST': 14}",PASS,real_robot_offline_dryrun_trace.csv,GHOST mode is offline core behavior.
+lost_mode_present,POP/NIS enters LOST mode after sustained dropout.,"mode_counts={'TRACKING': 57, 'GHOST': 19, 'LOST': 14}",PASS,real_robot_offline_dryrun_trace.csv,LOST mode does not prove real robot stopping latency.
+tracking_recovery_present,POP/NIS returns to TRACKING after high-confidence recovery.,recovery_rows=2,PASS,real_robot_offline_dryrun_trace.csv,Recovery measurement is scripted.
+nis_hard_gate_exercised,Dry run produces a NIS value above the hard gate.,max_nis=32.519,PASS,real_robot_offline_dryrun_trace.csv,High NIS is induced by a scripted offset.
+lost_triggers_safety_stop,Controller dry-run safety_stop is true during every LOST frame.,lost_stop_frames=14,PASS,real_robot_offline_dryrun_trace.csv,"Offline controller proxy, not actuator evidence."
+tracking_allows_positive_speed,Controller dry-run allows positive bounded speed during TRACKING.,positive_tracking_speed_frames=57,PASS,real_robot_offline_dryrun_trace.csv,Speed command is not bridged to hardware.
+trace_has_contract_fields,"Trace includes selected leader, NIS, mode, speed, headway, and stop-reason fields.",required columns present,PASS,real_robot_offline_dryrun_trace.csv,CSV field presence is not a rosbag.
+offline_nonclaim_boundary,"Dry run is explicitly below ROS2 launch, rosbag, timing, and physical robot validation.",offline Python only; no ROS2 imports beyond pure helpers,PASS,real_robot_offline_dryrun_trace.csv,Passing dry run does not prove ROS2 build/launch success or physical trial completion.

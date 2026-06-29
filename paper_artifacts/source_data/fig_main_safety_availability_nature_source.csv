@@ -1,0 +1,6 @@
+﻿method,category,source_method,source,n,success,success_rate,success_ci_low,success_ci_high,collision,collision_rate,lost,lost_rate,mean_jerk
+E2E Baseline (No MPC),E2E,E2E/PID baseline,docs\experiments\01_main_town05\baseline_e2e_300.csv,300,25,0.0833333333333333,0.0570808740563942,0.1201216019640607,259,0.8633333333333333,16,0.0533333333333333,
+Rule-Based + MPC,Heuristic,Rule + MPC,docs\experiments\01_main_town05\baseline_rule_300.csv,300,207,0.69,0.6355391960366674,0.739656474898005,0,0.0,93,0.31,
+Modular PID,Industrial,Modular PID,scripts\experiments\final_300\results_modular_pid.csv,300,99,0.33,0.2792344636154957,0.3850641466008499,176,0.5866666666666667,25,0.0833333333333333,43.249788
+Std KF + MPC,Ablation,Std KF + MPC,scripts\experiments\final_300\results_std_kf.csv,300,220,0.7333333333333333,0.680572605868549,0.7801940075599961,0,0.0,80,0.2666666666666666,0.1033746666666666
+QGIP-Net (Ours),Proposed,QGIP-Net full,scripts\experiments\final_300\results_ours.csv,300,230,0.7666666666666667,0.715618653578636,0.8109717617682728,0,0.0,70,0.2333333333333333,0.1120173333333333

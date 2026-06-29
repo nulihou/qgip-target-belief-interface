@@ -1,0 +1,13 @@
+\begin{tabular}{r r l l r r r l}
+\toprule
+\textbf{Step} & \textbf{Time (s)} & \textbf{Fault tag} & \textbf{Mode} & \textbf{Meas.} & \textbf{Cov. tr.} & \textbf{Cmd. (m/s)} & \textbf{Diagnostic reading} \\
+\midrule
+15 & 0.75 & none & TRACK & yes & 0.106 & 0.500 & normal selected-leader update \\
+16 & 0.80 & software dropout & GHOST & no & 0.226 & 0.225 & measurement missing; retain leader belief \\
+34 & 1.70 & software dropout & GHOST & no & 2.993 & 0.250 & uncertainty grows during short prediction \\
+35 & 1.75 & software dropout & LOST & no & 3.212 & 0.000 & sustained dropout triggers conservative stop \\
+49 & 2.45 & none & TRACK & yes & 0.500 & 0.500 & measurement returns; belief reinitializes \\
+51 & 2.55 & high-NIS offset & DEGRADED$\rightarrow$TRACK & yes & 0.500 & 0.500 & hard residual spike; reset accepted, NIS $=32.52$ \\
+53 & 2.65 & none & TRACK & yes & 0.500 & 0.500 & recovery after residual event \\
+\bottomrule
+\end{tabular}

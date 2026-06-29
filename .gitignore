@@ -1,0 +1,66 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Environments
+.env
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Large experiment artifacts
+data/
+datasets/
+checkpoints/
+outputs/
+experiments/
+runs/
+wandb/
+tensorboard/
+*.pt
+*.pth
+*.ckpt
+*.pkl
+*.npz
+*.npy
+
+# ROS2 / robot logs
+*.bag
+*.db3
+rosbag2_*/
+qgip_runs/
+tegrastats.log
+
+# Paper build outputs and large generated figures
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.out
+*.synctex.gz
+*.tiff
+*.zip
+*.rar
+
+# Local temporary files
+.tmp/
+tmp/
+temp/
+*.tmp
+*.bak
+*.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

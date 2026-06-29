@@ -1,0 +1,13 @@
+trial_group,scenario,speed_level,fault_type,fault_level,repeats,methods,abort_rules,primary_metrics
+straight_low_none,straight_following,low,none,none,5,"rule_mpc;std_kf_mpc;imm_kf_mpc;full_qgip","ttc_min;headway_min;remote_estop;timeout","completion;headway_rmse;jerk_p95;latency_p99"
+straight_low_dropout05,straight_following,low,software_dropout,0.5s,5,"std_kf_mpc;imm_kf_mpc;full_qgip","ttc_min;headway_min;remote_estop;timeout","recovery_time;min_headway;completion"
+straight_low_dropout10,straight_following,low,software_dropout,1.0s,5,"std_kf_mpc;imm_kf_mpc;full_qgip","ttc_min;headway_min;remote_estop;timeout","recovery_time;min_headway;completion"
+brake_low_dropout,lead_braking,low,dropout_during_brake,1.0s,5,"std_kf_mpc;imm_kf_mpc;full_qgip","ttc_min;headway_min;remote_estop;timeout","min_ttc;intervention;max_decel"
+curve_low_occlusion,curved_following,low,physical_occlusion,short,5,"std_kf_mpc;imm_kf_mpc;full_qgip","corridor_exit;headway_min;remote_estop","tracking_rmse;recovery_time;completion"
+distractor_low_fp,adjacent_lane_distractor,low,false_leader,standard,5,"rule_mpc;no_query_pop_mpc;full_qgip","ttc_min;headway_min;remote_estop","leader_gs1;id_switch;near_miss"
+cutin_low_idswitch,cut_in_cut_out,low,id_switch,standard,5,"rule_mpc;std_kf_mpc;full_qgip","ttc_min;headway_min;remote_estop","id_switch;near_miss;completion"
+stopgo_low_freq,stop_and_go,low,frequent_dropout,0.5hz,5,"std_kf_mpc;imm_kf_mpc;full_qgip","ttc_min;headway_min;timeout","stop_duration;lost;completion"
+straight_med_none,straight_following,medium,none,none,5,"std_kf_mpc;imm_kf_mpc;full_qgip","ttc_min;headway_min;remote_estop;timeout","completion;headway_rmse;jerk_p95;latency_p99"
+straight_med_dropout10,straight_following,medium,software_dropout,1.0s,5,"std_kf_mpc;imm_kf_mpc;full_qgip","ttc_min;headway_min;remote_estop;timeout","recovery_time;min_headway;completion"
+brake_med_dropout,lead_braking,medium,dropout_during_brake,1.0s,5,"std_kf_mpc;imm_kf_mpc;full_qgip","ttc_min;headway_min;remote_estop;timeout","min_ttc;intervention;max_decel"
+curve_med_occlusion,curved_following,medium,physical_occlusion,short,5,"std_kf_mpc;imm_kf_mpc;full_qgip","corridor_exit;headway_min;remote_estop","tracking_rmse;recovery_time;completion"

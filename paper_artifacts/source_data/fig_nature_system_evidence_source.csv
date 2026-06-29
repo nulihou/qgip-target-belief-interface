@@ -1,0 +1,17 @@
+panel,condition_id,display_condition,method,display_method,metric,value,unit,source_file
+a,object_interface,Object-list / ego-state interface,interface,Object-list and ego state,architecture_stage,1,stage,manuscript_method
+a,scene_graph,Intent-conditioned scene graph,learned,Scene graph,architecture_stage,2,stage,manuscript_method
+a,query_gnn,Query-guided GNN,learned,Leader distribution,architecture_stage,3,stage,manuscript_method
+a,pop_nis_kf,POP / NIS-KF belief,belief,Track / ghost / degraded / reset,architecture_stage,4,stage,manuscript_method
+a,lattice_mpc,Lattice MPC,control,Collision-feasibility filtering,architecture_stage,5,stage,manuscript_method
+a,acc_action,ACC action,control,Track / slow / stop,architecture_stage,6,stage,manuscript_method
+a,feedback,Closed-loop feedback,interface,Gating or feedback,dashed_arrow,1,arrow,manuscript_method
+b,leader_attention,Leader attention inset,learned,Lane-consistent leader,leader_probability,0.95,fraction,manuscript_method
+b,adjacent_distractor,Adjacent-lane distractor,learned,Distractor,leader_probability,0.10,fraction,manuscript_method
+b,far_distractor,Far distractor,learned,Distractor,leader_probability,0.05,fraction,manuscript_method
+c,reliable_update,POP reliable mode,belief,Reliable update,mode_order,1,mode,manuscript_method
+c,ghost_prediction,POP ghost mode,belief,Ghost prediction,mode_order,2,mode,manuscript_method
+c,degraded_operation,POP degraded mode,belief,Degraded hold / slow,mode_order,3,mode,manuscript_method
+c,reset_recovery,POP reset mode,belief,Reset / recovery,mode_order,4,mode,manuscript_method
+d,selected_rollout,MPC selected rollout,control,Collision-feasible selected candidate,rollout_status,1,status,manuscript_method
+d,rejected_rollout,MPC rejected rollout,control,Collision-infeasible rejected candidate,rollout_status,0,status,manuscript_method

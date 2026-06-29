@@ -1,0 +1,65 @@
+robot:
+  platform_type: "unknown"  # differential, ackermann, four_wheel
+  wheelbase_m: 0.33
+  robot_radius_m: 0.18
+  max_speed_low_mps: 0.2
+  max_speed_medium_mps: 0.5
+  max_speed_high_mps: 0.8
+  max_accel_mps2: 0.8
+  max_decel_mps2: 1.5
+  max_steer_rad: 0.45
+
+control:
+  frequency_hz: 20
+  horizon_s: 1.5
+  dt_s: 0.05
+  ghost_horizon_s: 1.0
+  lost_timeout_s: 1.5
+  command_timeout_s: 0.2
+  safety_distance_base_m: 0.35
+  safety_distance_time_headway_s: 1.0
+  near_miss_distance_m: 0.25
+  ttc_abort_s: 0.8
+
+pop_nis_kf:
+  state: ["px", "py", "vx", "vy"]
+  measurement: ["px", "py", "vx", "vy"]
+  confidence_threshold: 0.5
+  nis_soft_threshold: 12.0
+  nis_hard_threshold: 20.0
+  high_confidence_threshold: 0.85
+  measurement_noise_diag: [0.02, 0.02, 0.08, 0.08]
+  process_noise_diag: [0.01, 0.01, 0.05, 0.05]
+  conservative_r_inflation: 10.0
+
+fault_injection:
+  dropout_period_s: 5.0
+  dropout_durations_s: [0.3, 0.5, 1.0, 1.5]
+  noise_std_m: [0.05, 0.10, 0.20]
+  delay_ms: [50, 100, 200]
+  false_positive_rate: [0.05, 0.10]
+  false_negative_rate: [0.20, 0.50]
+  confidence_scale: [0.5, 0.8]
+
+trial_abort_rules:
+  ttc_below_threshold: true
+  headway_below_threshold: true
+  corridor_exit: true
+  command_timeout: true
+  remote_estop: true
+
+logging:
+  rosbag: true
+  video: true
+  metrics_csv: true
+  topics:
+    - "/detections_raw"
+    - "/detections_faulty"
+    - "/qgip/selected_leader"
+    - "/qgip/pop_state"
+    - "/qgip/mpc_debug"
+    - "/cmd_vel"
+    - "/cmd_vel_safe"
+    - "/drive"
+    - "/odom"
+    - "/tf"

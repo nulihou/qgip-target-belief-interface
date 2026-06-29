@@ -1,0 +1,10 @@
+\begin{tabular}{p{0.22\textwidth} p{0.30\textwidth} p{0.37\textwidth}}
+\toprule
+\textbf{Evidence layer} & \textbf{Result} & \textbf{Interpretation boundary} \\
+\midrule
+Scripted dynamic suite & 28 groups, 7200 episodes. Hard-brake and curve-following profiles are non-discriminative for target selection; cut-in, merge-like, wrong-query, and delayed-query expose lower QGIP LeaderAcc than SORT+MPC. & Expands stress coverage beyond static adjacent-lane ambiguity, but does not support a universal superiority claim over SORT+MPC. \\
+Query-ablation check in dynamic profiles & Default QGIP and QGIP no-query are identical in cut-in, merge-like, wrong-query, and delayed-query profiles. & The dynamic suite does not by itself prove semantic-query contribution; that claim remains outside the present closed-loop evidence. \\
+NIS threshold sweep & 5 groups, 500 episodes. At 0.5 m observation noise, soft/hard violations decrease from 5.52/1.53 to 0.25/0.09 per episode as gates widen; at 1.0 m noise, NIS mean rises to 4.389 and p95 to 12.6. & Supports NIS as an operating diagnostic and gate-sensitivity measure, not a formal covariance-calibration proof. \\
+Weather-conditioned detector-output degradation & 6 groups, 600 episodes. QGIP and detector/tracker outcomes are similar; under glare, LeaderAcc is 94.6\% for QGIP and 96.9\% for detector/tracker. & This is detector-output degradation in CARLA weather, not raw camera/LiDAR robustness or physical-sensor validation. \\
+\bottomrule
+\end{tabular}

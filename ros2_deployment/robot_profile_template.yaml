@@ -1,0 +1,56 @@
+robot_profile:
+  robot_name: ""
+  platform_type: ""  # differential, ackermann, skid_steer, four_wheel
+  drive_interface: ""  # /cmd_vel, /drive, custom
+  ros2_distribution: ""  # humble, iron, jazzy, etc.
+  onboard_computer: ""  # Jetson Orin, NUC, laptop, etc.
+  gpu: ""
+  operating_system: ""
+
+geometry:
+  wheelbase_m: null
+  track_width_m: null
+  robot_radius_m: null
+  length_m: null
+  width_m: null
+
+limits:
+  max_speed_mps: null
+  test_speed_low_mps: 0.2
+  test_speed_medium_mps: 0.5
+  max_accel_mps2: null
+  max_decel_mps2: null
+  max_steer_rad: null
+  command_frequency_hz: null
+
+sensors:
+  camera:
+    model: ""
+    topic: ""
+    fps: null
+    resolution: ""
+  depth:
+    model: ""
+    topic: ""
+    fps: null
+  lidar:
+    model: ""
+    topic: ""
+    scan_rate_hz: null
+  odom:
+    topic: ""
+  imu:
+    topic: ""
+
+leader_target:
+  type: ""  # second_robot, rc_car, pushed_cart, target_board
+  marker_type: ""  # apriltag, aruco, none
+  marker_size_m: null
+  ground_truth_source: ""  # mocap, overhead_camera, manual_measurement, second_robot_odom
+
+safety:
+  remote_estop: false
+  physical_bumper: false
+  speed_limit_enabled: true
+  safety_supervisor_enabled: true
+  test_area_description: ""

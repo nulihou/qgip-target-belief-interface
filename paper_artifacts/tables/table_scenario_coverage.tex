@@ -1,0 +1,14 @@
+\begin{tabular}{l l c c l}
+\toprule
+\textbf{Scenario} & \textbf{Cond.} & \textbf{N} & \textbf{Succ./Lost} & \textbf{Evidence} \\
+\midrule
+nominal following & \texttt{main} & 1000 & 73.5\%/26.5\% & Low-ambiguity sanity check; route outcome not discriminative \\
+primary adjacent ambiguity & \texttt{fp10} & 300 & 73.0\%/27.0\% & QGIP LA 86.2\% vs no-query 53.2\% \\
+primary ID ambiguity & \texttt{idsw} & 300 & 73.0\%/27.0\% & QGIP LA 90.7\% vs Std-KF 56.0\%; SORT has higher LA but more ID switches \\
+boundary ambiguity & \texttt{fp20+idsw} & 100 & 77.0\%/23.0\% & QGIP LA 80.0\% vs no-query 47.8\%; supplemental SORT LA 80.3\% \\
+scripted dynamics & \texttt{hard/curve} & 300 & 84.3--90.7\%/9.3--15.7\% & Mostly non-discriminative; all compared methods LA 100.0\% \\
+dynamic association & \texttt{cut/merge/query} & 100--300 & 72.0--77.0\%/23.0--27.0\% & SORT stronger than default QGIP; used as limitation coverage \\
+NIS gate sensitivity & \texttt{gate sweep} & 100 & 76.0\%/24.0\% & Violation counts change with soft/hard gates and noise \\
+weather detector-output & \texttt{glare/low-light/LiDAR-dropout} & 100 & 76.0\%/24.0\% & Detector-output degradation, not raw sensor robustness \\
+\bottomrule
+\end{tabular}

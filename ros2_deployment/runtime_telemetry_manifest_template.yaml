@@ -1,0 +1,73 @@
+manifest_version: 2026-06-04-runtime-telemetry-v1
+purpose: Runtime timing, watchdog, and system-load telemetry manifest for ROS2 HIL and low-speed robot trials.
+boundary: Instrumentation contract only; this template does not prove ROS2 launch success, HIL timing, actuator bridge behavior, or physical robot validation.
+
+trial_linkage:
+  trial_id: TBD
+  run_manifest: real_robot_run_manifest_template.yaml
+  metric_summary_csv: real_robot_results_template.csv
+  telemetry_schema: ros2_runtime_telemetry_schema.csv
+  hil_manifest: hil_replay_manifest_template.yaml
+
+required_topics:
+  timing_topics:
+    - /tf
+    - /robot_1/odom
+    - /robot_1/detections_raw
+    - /robot_1/detections_faulty
+    - /robot_1/qgip/selected_leader
+    - /robot_1/qgip/pop_state
+    - /robot_1/qgip/mpc_debug
+    - /robot_1/cmd_vel_safe
+    - /robot_1/safety_state
+  safety_topics:
+    - /robot_1/qgip/trial_status
+    - /robot_1/safety_state
+
+collection_commands:
+  rosbag_record: ros2 bag record /tf /tf_static /robot_1/odom /robot_1/detections_raw /robot_1/detections_faulty /robot_1/qgip/selected_leader /robot_1/qgip/pop_state /robot_1/qgip/mpc_debug /robot_1/qgip/trial_status /robot_1/cmd_vel_safe /robot_1/safety_state
+  topic_hz: ros2 topic hz /robot_1/qgip/selected_leader /robot_1/qgip/pop_state /robot_1/cmd_vel_safe /robot_1/safety_state
+  bag_info: ros2 bag info <bag_dir>
+  robot_cpu_gpu_monitor: tegrastats --interval 1000 or nvidia-smi --query-gpu=utilization.gpu,memory.used --format=csv
+  telemetry_summary: python collect_runtime_telemetry.py --bag <bag_dir> --schema ros2_runtime_telemetry_schema.csv --out runtime_telemetry.csv
+  telemetry_parser_dryrun: python RA_L_optimization_20260528/05_analysis_scripts/generate_ros2_runtime_telemetry_dryrun.py
+
+acceptance_thresholds:
+  latency_mean_ms_max: TBD_robot_specific
+  latency_p95_ms_max: TBD_robot_specific
+  latency_p99_ms_max: TBD_robot_specific
+  clock_drift_p95_ms_max: TBD_robot_specific
+  cmd_vel_safe_age_p95_ms_max: TBD_watchdog_specific
+  frame_drop_count_max: 0_or_explained_by_incident_report
+  watchdog_triggers_allowed_before_actuator_bridge: 0_or_expected_fault_injection_with_safety_state_reason
+  cpu_load_mean_percent_max: TBD_robot_specific
+  gpu_load_mean_percent_max: TBD_robot_specific
+  gpu_memory_peak_mb_max: TBD_robot_specific
+
+summary_fields_required:
+  - latency_mean_ms
+  - latency_p95_ms
+  - latency_p99_ms
+  - watchdog_triggers
+  - frame_drop_count
+  - clock_drift_p95_ms
+  - cmd_vel_safe_age_p95_ms
+  - cpu_load_mean_percent
+  - gpu_load_mean_percent
+  - gpu_memory_peak_mb
+
+archive_after_trial:
+  - runtime_telemetry.csv
+  - real_robot_results_template-compatible metric summary
+  - rosbag2 metadata.yaml
+  - ros2 bag info text export
+  - ros2 topic hz text exports
+  - tegrastats or nvidia-smi system-load log
+  - safety_state extract with watchdog reasons
+  - incident report for any frame drop, watchdog trigger, near-miss, contact, operator stop, or threshold violation
+
+parser_dryrun_boundary:
+  dryrun_trace: 08_paper_ready_outputs/source_data/ros2_runtime_telemetry_dryrun_trace.csv
+  dryrun_summary: 08_paper_ready_outputs/source_data/ros2_runtime_telemetry_dryrun_summary.csv
+  dryrun_report: 06_submission_package/ros2_runtime_telemetry_dryrun_report_20260604.md
+  interpretation: Synthetic parser QA only; these files do not prove live ROS2 timing, rosbag extraction correctness, HIL replay timing, actuator bridge behavior, embedded feasibility, deployment safety, or physical robot motion.

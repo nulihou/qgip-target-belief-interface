@@ -1,0 +1,3 @@
+condition_id,method,n,success_count,lost_count,collision_count,leader_acc,wrong_leader_frames_mean,id_switches_mean,source_csv
+fp_10,IMM-KF + MPC,100,75,25,0,0.536554256869105,227.79,137.40,RA_L_optimization_20260528/07_computer_experiments/missing_baselines_20260615/paper/fp_10/imm_kf.csv
+idswitch,IMM-KF + MPC,100,75,25,0,0.579682306987173,207.21,185.63,RA_L_optimization_20260528/07_computer_experiments/missing_baselines_20260615/paper/idswitch/imm_kf.csv

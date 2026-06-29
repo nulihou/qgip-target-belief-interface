@@ -1,0 +1,5 @@
+Neuro-symbolic system keeps safety logic fixed while learning perception features.
+FiLM-GNN grounds navigation queries into a dynamic scene graph for leader selection.
+NIS-gated Kalman Ghost Tracking bridges perception dropouts and speeds recovery.
+Collision-feasibility filtering with MPC prioritizes collision-free trajectories.
+CARLA failure-injection benchmark shows 0 collisions in 300 trials under protocol.

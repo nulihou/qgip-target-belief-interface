@@ -1,0 +1,39 @@
+# Python/cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+pytest-cache*/
+
+# ROS2/colcon generated outputs
+build/
+install/
+log/
+ros2_preflight_logs_*/
+
+# Runtime logs and generated trial outputs
+*.log
+*.tmp
+*_results.csv
+runtime_telemetry.csv
+
+# Rosbag and large runtime captures
+*.db3
+*.mcap
+*.bag
+*.active
+rosbag2_*/
+bags/
+
+# Local editor and OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Do not commit credentials or local robot secrets
+*.secret
+*.token
+credentials*
+robot_profile.local.yaml

@@ -1,0 +1,40 @@
+figure,label,width_px,height_px,non_white_fraction,luma_p05,luma_p95,luma_p95_minus_p05
+fig_nature_system_evidence,System/evidence composite,4322,2976,0.2400,0.3701,0.9801,0.6100
+fig_nature_system_evidence__grayscale,System/evidence composite,4322,2976,0.2400,0.3412,0.9765,0.6353
+fig_nature_system_evidence__deuteranopia_approx,System/evidence composite,4322,2976,0.2400,0.2435,0.9725,0.7290
+fig_query_guided_attention,Query-guided attention mechanism,4173,1598,0.0694,0.0000,0.9759,0.9759
+fig_query_guided_attention__grayscale,Query-guided attention mechanism,4173,1598,0.0695,0.0000,0.9765,0.9765
+fig_query_guided_attention__deuteranopia_approx,Query-guided attention mechanism,4173,1598,0.0697,0.0000,0.9728,0.9728
+fig_pop_ghost_tracking,POP ghost-tracking mechanism,5047,5212,0.2727,0.0000,0.9713,0.9713
+fig_pop_ghost_tracking__grayscale,POP ghost-tracking mechanism,5047,5212,0.2727,0.0000,0.9725,0.9725
+fig_pop_ghost_tracking__deuteranopia_approx,POP ghost-tracking mechanism,5047,5212,0.2727,0.0000,0.9840,0.9840
+fig6_split_audit_matrix_only_v2,Dataset split audit,3729,1227,0.3384,0.3384,0.9787,0.6404
+fig6_split_audit_matrix_only_v2__grayscale,Dataset split audit,3729,1227,0.3384,0.3216,0.9765,0.6549
+fig6_split_audit_matrix_only_v2__deuteranopia_approx,Dataset split audit,3729,1227,0.3384,0.1849,0.9709,0.7860
+fig9_extended_stress_operating_envelope_refined_v3,Extended stress operating envelope,4235,1812,0.1525,0.0000,0.9580,0.9580
+fig9_extended_stress_operating_envelope_refined_v3__grayscale,Extended stress operating envelope,4235,1812,0.3073,0.4157,0.9843,0.5686
+fig9_extended_stress_operating_envelope_refined_v3__deuteranopia_approx,Extended stress operating envelope,4235,1812,0.1503,0.0000,0.9652,0.9652
+fig10_nis_regime_bubble_map_refined_v5,NIS diagnostic regime map,4188,1744,0.7109,0.8874,0.9626,0.0752
+fig10_nis_regime_bubble_map_refined_v5__grayscale,NIS diagnostic regime map,4188,1744,0.7109,0.8863,0.9608,0.0745
+fig10_nis_regime_bubble_map_refined_v5__deuteranopia_approx,NIS diagnostic regime map,4188,1744,0.7109,0.8838,0.9753,0.0916
+fig13_offline_dryrun_contract_timeline_v2,Offline dry-run contract timeline,4279,1836,0.2688,0.3384,0.9605,0.6221
+fig13_offline_dryrun_contract_timeline_v2__grayscale,Offline dry-run contract timeline,4279,1836,0.2688,0.3216,0.9608,0.6392
+fig13_offline_dryrun_contract_timeline_v2__deuteranopia_approx,Offline dry-run contract timeline,4279,1836,0.2689,0.1849,0.9574,0.7725
+fig11_claim_boundary_bowtie_v4,Safety-case claim boundary,4331,1992,0.4508,0.4678,0.9804,0.5126
+fig11_claim_boundary_bowtie_v4__grayscale,Safety-case claim boundary,4331,1992,0.4508,0.4745,0.9804,0.5059
+fig11_claim_boundary_bowtie_v4__deuteranopia_approx,Safety-case claim boundary,4331,1992,0.3046,0.2864,0.9728,0.6864
+fig_evidence_coverage_matrix,Evidence coverage matrix,4236,1726,0.6365,0.7766,0.9806,0.2041
+fig_evidence_coverage_matrix__grayscale,Evidence coverage matrix,4236,1726,0.6365,0.7765,0.9804,0.2039
+fig_evidence_coverage_matrix__deuteranopia_approx,Evidence coverage matrix,4236,1726,0.6365,0.7614,0.9829,0.2215
+fig5_stress_suite_discriminators_v3,Stress-suite discriminators,4649,2142,0.3598,0.3384,0.9824,0.6440
+fig5_stress_suite_discriminators_v3__grayscale,Stress-suite discriminators,4649,2142,0.3598,0.3216,0.9804,0.6588
+fig5_stress_suite_discriminators_v3__deuteranopia_approx,Stress-suite discriminators,4649,2142,0.3067,0.1333,0.9745,0.8412
+fig7_main_result_final_v7,Main result and target-selection evidence,4497,2413,0.1506,0.0000,0.9627,0.9627
+fig7_main_result_final_v7__grayscale,Main result and target-selection evidence,4497,2413,0.1506,0.0000,0.9608,0.9608
+fig7_main_result_final_v7__deuteranopia_approx,Main result and target-selection evidence,4497,2413,0.1506,0.0000,0.9725,0.9725
+fig8_wrong_leader_exposure_diagnostic_v5,Wrong-leader exposure diagnostic,4571,1856,0.2275,0.0000,0.9708,0.9708
+fig8_wrong_leader_exposure_diagnostic_v5__grayscale,Wrong-leader exposure diagnostic,4571,1856,0.2275,0.0000,0.9725,0.9725
+fig8_wrong_leader_exposure_diagnostic_v5__deuteranopia_approx,Wrong-leader exposure diagnostic,4571,1856,0.2275,0.0000,0.9793,0.9793
+fig12_validation_boundary_narrative_v4,Pre-real-robot validation boundary,4226,1330,0.4796,0.7621,0.9646,0.2025
+fig12_validation_boundary_narrative_v4__grayscale,Pre-real-robot validation boundary,4226,1330,0.4797,0.7647,0.9686,0.2039
+fig12_validation_boundary_narrative_v4__deuteranopia_approx,Pre-real-robot validation boundary,4226,1330,0.4797,0.7614,0.9779,0.2165

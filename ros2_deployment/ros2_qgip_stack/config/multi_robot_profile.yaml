@@ -1,0 +1,62 @@
+robots:
+  follower:
+    id: robot_1
+    namespace: /robot_1
+    base_frame: robot_1/base_link
+    odom_topic: /robot_1/odom
+    cmd_vel_safe_topic: /robot_1/cmd_vel_safe
+  leaders:
+    - id: robot_2
+      base_frame: robot_2/base_link
+    - id: robot_3
+      base_frame: robot_3/base_link
+
+topics:
+  detections_raw: /robot_1/detections_raw
+  detections_faulty: /robot_1/detections_faulty
+  selected_leader: /robot_1/qgip/selected_leader
+  pop_state: /robot_1/qgip/pop_state
+  mpc_debug: /robot_1/qgip/mpc_debug
+  trial_status: /robot_1/qgip/trial_status
+  cmd_vel_safe: /robot_1/cmd_vel_safe
+  safety_state: /robot_1/safety_state
+
+preflight:
+  publish_hz: 20.0
+  max_detection_range_m: 4.0
+  max_abs_lateral_m: 1.5
+  leader_id_filter: ""
+
+fault_injection:
+  dropout_period_s: 5.0
+  dropout_duration_s: 0.0
+  position_noise_std_m: 0.0
+  velocity_noise_std_mps: 0.0
+  false_positive_rate: 0.0
+  false_negative_rate: 0.0
+  confidence_scale: 1.0
+  delay_s: 0.0
+  id_switch_probability: 0.0
+  random_seed: 7
+
+pop_nis:
+  dt: 0.05
+  confidence_threshold: 0.5
+  high_confidence_threshold: 0.85
+  nis_soft_threshold: 12.0
+  nis_hard_threshold: 20.0
+  r_inflation: 10.0
+  ghost_horizon_s: 1.0
+  lost_timeout_s: 1.5
+
+controller:
+  control_hz: 20.0
+  max_speed_mps: 0.5
+  max_angular_radps: 1.0
+  max_accel_mps2: 0.6
+  safety_distance_base_m: 0.35
+  time_headway_s: 1.0
+  near_miss_distance_m: 0.25
+  kp_gap: 0.8
+  kp_lateral: 1.2
+  kv_rel: 0.2

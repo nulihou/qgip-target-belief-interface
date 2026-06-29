@@ -1,0 +1,11 @@
+﻿mode,object,lateral_m,longitudinal_m,attention,selected,role,score_type
+follow leader,ego,0.0,1.4,0.0,0,ego,relative target score
+follow leader,same lane,0.0,8.0,0.95,1,same-lane leader,relative target score
+follow leader,far leader,0.0,17.6,0.1,0,far leader,relative target score
+follow leader,left lane,-2.35,10.0,0.05,0,left-lane vehicle,relative target score
+follow leader,right lane,2.35,7.3,0.02,0,right-lane vehicle,relative target score
+lane change left,ego,0.0,1.4,0.0,0,ego,relative target score
+lane change left,same lane,0.0,8.0,0.3,0,same-lane leader,relative target score
+lane change left,far leader,0.0,17.6,0.05,0,far leader,relative target score
+lane change left,left lane,-2.35,10.0,0.85,1,target-lane vehicle,relative target score
+lane change left,right lane,2.35,7.3,0.01,0,right-lane vehicle,relative target score

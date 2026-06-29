@@ -1,0 +1,79 @@
+manifest_version: 2026-06-04-ros2-workspace-ci-v1
+purpose: Build, test, and launch-argument preflight for the ROS2 QGIP stack before HIL or physical trials.
+boundary: CI readiness only; this manifest does not prove live ROS2 launch, rosbag timing, actuator bridge behavior, or physical robot motion.
+
+workspace_layout:
+  package_path: src/ros2_qgip_stack
+  package_name: ros2_qgip_stack
+  required_ros2_distribution: humble_or_later
+  required_commands:
+    - ros2
+    - colcon
+    - python3
+    - pytest
+
+commands:
+  - id: colcon_build
+    command: colcon build --packages-select ros2_qgip_stack --event-handlers console_direct+
+    required_before: colcon_test
+    expected_artifact: build and install directories for ros2_qgip_stack
+  - id: colcon_test
+    command: colcon test --packages-select ros2_qgip_stack --event-handlers console_direct+
+    required_before: test_result
+    expected_artifact: pytest and ament test results
+  - id: test_result
+    command: colcon test-result --verbose
+    required_before: launch_show_args
+    expected_artifact: zero failed package tests
+  - id: launch_show_args
+    command: ros2 launch ros2_qgip_stack multi_robot_preflight.launch.py --show-args
+    required_before: hil_replay
+    expected_artifact: launch arguments for follower_ns, max_speed_mps, NIS gates, fault knobs, and results_csv_path
+  - id: pure_core_pytest
+    command: python3 -m pytest src/ros2_qgip_stack/test -q
+    required_before: hil_replay
+    expected_artifact: pure-Python POP/NIS, fault injection, and JSON contract tests pass
+
+test_assets:
+  - src/ros2_qgip_stack/test/test_core_contracts.py
+  - src/ros2_qgip_stack/ros2_qgip_stack/pop_nis_kf_core.py
+  - src/ros2_qgip_stack/ros2_qgip_stack/fault_injection_core.py
+  - src/ros2_qgip_stack/ros2_qgip_stack/json_contract.py
+
+launch_arguments_required:
+  - follower_ns
+  - follower_frame
+  - leader_frames
+  - leader_ids
+  - max_speed_mps
+  - dropout_duration_s
+  - position_noise_std_m
+  - delay_s
+  - false_positive_rate
+  - false_negative_rate
+  - id_switch_probability
+  - confidence_threshold
+  - nis_soft_threshold
+  - nis_hard_threshold
+  - ghost_horizon_s
+  - lost_timeout_s
+  - results_csv_path
+
+safety_boundary:
+  actuator_bridge_enabled_by_ci: false
+  shadow_command_topic: /robot_1/cmd_vel_safe
+  safety_state_topic: /robot_1/safety_state
+  forbidden_before_operator_gate:
+    - /cmd_vel
+    - /drive
+    - /ackermann_cmd
+
+archive_after_success:
+  - colcon build log
+  - colcon test log
+  - colcon test-result --verbose output
+  - ros2 launch --show-args output
+  - pytest output
+  - software_environment_audit_20260604.csv
+  - ros2_runtime_telemetry_audit.csv
+  - ros2_hil_replay_manifest_audit.csv

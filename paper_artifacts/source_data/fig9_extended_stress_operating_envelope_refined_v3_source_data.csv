@@ -1,0 +1,8 @@
+condition,family,N,success_percent,lost_percent,LeaderAcc_percent,IDSwitches_per_episode,rule_of_three_upper_bound_percent
+FP10,ambiguity,300,73.0,27.0,86.2,62.5,1.0
+ID switch,ambiguity,300,73.0,27.0,90.7,39.2,1.0
+FN50,detector/timing,300,72.7,27.3,100.0,0.0,1.0
+Delay200,detector/timing,300,72.7,27.3,100.0,0.0,1.0
+Glare degradation,detector-output,100,76.0,24.0,100.0,0.0,3.0
+LiDAR-dropout profile,detector-output,100,76.0,24.0,100.0,0.0,3.0
+Boundary,boundary,100,77.0,23.0,80.0,126.5,3.0

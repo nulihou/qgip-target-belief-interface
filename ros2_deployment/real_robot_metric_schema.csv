@@ -1,0 +1,30 @@
+field,definition,unit,type,required,source
+trial_id,Unique trial identifier,none,string,true,run manifest
+method,Evaluated controller or ablation,none,categorical,true,run manifest
+scenario,Physical scenario class,none,categorical,true,run manifest
+speed_level,Low or medium speed setting,none,categorical,true,run manifest
+fault_type,Injected or physical perturbation type,none,categorical,true,run manifest
+fault_level,Perturbation magnitude or label,none,string,true,run manifest
+repeat_id,Repeat index within condition,none,integer,true,run manifest
+completion,Whether the planned task completed without abort,boolean,boolean,true,trial supervisor
+contact,Any physical contact event,boolean,boolean,true,incident report
+safety_stop,Whether the safety layer or operator stopped the robot,boolean,boolean,true,trial supervisor
+near_miss,Whether minimum headway/TTC crossed near-miss threshold,boolean,boolean,true,trial supervisor
+lost,Whether leader tracking was lost beyond the configured horizon,boolean,boolean,true,POP/NIS state
+min_distance_m,Minimum measured leader-follower distance,m,float,true,trial supervisor
+min_ttc_s,Minimum time-to-collision estimate,s,float,true,trial supervisor
+recovery_time_s,Time from perturbation end to tracking recovery,s,float,true,per-frame CSV
+id_switch_count,Number of selected-leader identity switches,count,integer,true,selected-leader log
+tracking_rmse_m,Leader relative-position RMSE,m,float,true,ground-truth alignment
+jerk_p95,95th percentile command jerk,m/s^3,float,true,command log
+latency_mean_ms,Mean end-to-end latency,ms,float,true,timestamp audit
+latency_p95_ms,95th percentile end-to-end latency,ms,float,true,timestamp audit
+latency_p99_ms,99th percentile end-to-end latency,ms,float,true,timestamp audit
+watchdog_triggers,Watchdog timeout count,count,integer,true,safety supervisor
+frame_drop_count,Detected missing or late frame count,count,integer,true,timestamp audit
+clock_drift_p95_ms,95th percentile ROS-vs-wall clock drift,ms,float,true,timestamp audit
+cmd_vel_safe_age_p95_ms,95th percentile age of latest safe command,ms,float,true,timestamp audit
+cpu_load_mean_percent,Mean robot-computer CPU load,percent,float,true,system telemetry
+gpu_load_mean_percent,Mean robot-computer GPU load,percent,float,true,system telemetry
+gpu_memory_peak_mb,Peak GPU memory allocation,MB,float,true,system telemetry
+notes,Short annotation for anomalies or exclusions,none,string,false,operator

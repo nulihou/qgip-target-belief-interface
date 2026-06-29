@@ -1,0 +1,6 @@
+label,family,N,lost,leaderacc,ids,members,rule_of_three_upper_bound_percent
+FP10,ambiguity,300,27.0,86.2,62.5,FP10,1.0
+ID switch,ambiguity,300,27.0,90.7,39.2,ID switch,1.0
+FN50 / Delay200,detector/timing,300,27.3,100.0,0.0,FN50; Delay200,1.0
+Glare / dropout,detector-output,100,24.0,100.0,0.0,glare degradation; LiDAR-dropout profile,3.0
+Boundary,boundary,100,23.0,80.0,126.5,fp20_idswitch20,3.0

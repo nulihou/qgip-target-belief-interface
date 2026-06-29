@@ -1,0 +1,13 @@
+stage,trial_set,method,scenario,follower,leader,distractor,speed_mps,fault_type,fault_level,repeats,expected_output
+A,tf_dry,full_qgip_pop_nis,static_transform_check,robot_1,robot_2,robot_3,0.0,none,none,3,stable_tf_and_detection_json
+B,offline_bag,std_kf_like,straight_following,robot_1,robot_2,robot_3,0.2,none,none,5,tracking_baseline
+B,offline_bag,full_qgip_pop_nis,straight_following,robot_1,robot_2,robot_3,0.2,none,none,5,pop_tracking_reference
+B,offline_bag,std_kf_like,straight_following,robot_1,robot_2,robot_3,0.2,dropout,0.5s,5,dropout_recovery_baseline
+B,offline_bag,full_qgip_pop_nis,straight_following,robot_1,robot_2,robot_3,0.2,dropout,0.5s,5,dropout_recovery_full
+B,offline_bag,full_qgip_pop_nis,adjacent_distractor,robot_1,robot_2,robot_3,0.2,false_positive,robot_3_as_distractor,5,leader_selection_and_id_stability
+C,hil_shadow,std_kf_like,straight_following,robot_1,robot_2,robot_3,0.2,delay,100ms,5,latency_and_command_sanity_baseline
+C,hil_shadow,full_qgip_pop_nis,straight_following,robot_1,robot_2,robot_3,0.2,delay,100ms,5,latency_and_command_sanity_full
+C,hil_shadow,no_pop_short_timeout,lead_stop,robot_1,robot_2,robot_3,0.2,dropout_during_brake,0.5s,5,fail_safe_without_ghost
+C,hil_shadow,full_qgip_pop_nis,lead_stop,robot_1,robot_2,robot_3,0.2,dropout_during_brake,0.5s,5,fail_safe_with_ghost
+D,closed_loop_gate,full_qgip_pop_nis,straight_following,robot_1,robot_2,none,0.2,none,none,10,low_speed_gate
+D,closed_loop_gate,full_qgip_pop_nis,straight_following,robot_1,robot_2,robot_3,0.2,dropout,0.5s,10,low_speed_dropout_gate

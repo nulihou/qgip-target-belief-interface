@@ -1,0 +1,11 @@
+side,node,detail
+completed_evidence,ODD / split control,bounded ODD and leakage audit
+completed_evidence,Target-consistency evidence,ambiguity tests expose target selection
+completed_evidence,Finite-sample safety interpretation,zero collisions kept as finite-sample evidence
+completed_evidence,Uncertainty-monitor evidence,NIS outliers trigger recovery logic
+completed_evidence,Source-data / provenance audit,claim-source drift checks
+bounded_claim,bounded CARLA simulation claim,target consistency + local safety filter within tested ODD
+remaining_requirement,Live ROS2/HIL timing evidence,"colcon, launch, rosbag, and HIL timing logs"
+remaining_requirement,Operator-supervised robot trials,physical closed-loop trial manifests
+remaining_requirement,DOI-backed release record,retrievable evidence package
+boundary,no physical-validation claim,CARLA evidence does not cross into live ROS2/HIL or physical robot validation

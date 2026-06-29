@@ -1,0 +1,19 @@
+\begin{tabular}{l l c c c c c l}
+\hline
+Variant & Selector path & N & Success/Lost & Collision & Wrong-leader rate & NIS mean & Interpretation \\
+\hline
+\texttt{full\_stack\_lane\_gate} & Leader ckpt & 300 & 221/79 & 0 & 0.200 & 357.0 & Reference runtime stack \\
+\texttt{no\_lane\_gate} & Leader ckpt & 300 & 221/79 & 0 & 0.531 & 495.2 & Lane gate removed \\
+\texttt{legacy\_no\_query} & Leader ckpt & 300 & 221/79 & 0 & 0.200 & 357.0 & Legacy query+edge off \\
+\texttt{query\_zero} & Leader ckpt & 300 & 221/79 & 0 & 0.200 & 357.0 & Query vector zeroed \\
+\texttt{film\_off} & Leader ckpt & 300 & 221/79 & 0 & 0.200 & 357.0 & FiLM modulation off \\
+\texttt{edge\_off} & Leader ckpt & 300 & 221/79 & 0 & 0.201 & 358.3 & Edge features off \\
+\texttt{gnn\_selector} & QGIP selector & 300 & 221/79 & 0 & 0.159 & 255.7 & QGIP selector path \\
+\texttt{gnn\_film\_off} & QGIP selector & 300 & 221/79 & 0 & 0.160 & 259.3 & QGIP selector, FiLM off \\
+\texttt{gnn\_edge\_off} & QGIP selector & 300 & 221/79 & 0 & 0.156 & 233.0 & QGIP selector, edge off \\
+\texttt{pop\_ghost\_off} & Leader ckpt & 300 & 221/79 & 0 & 0.200 & 357.0 & Ghost horizon disabled \\
+\texttt{hard\_recovery\_off} & Leader ckpt & 300 & 221/79 & 0 & 0.200 & 347.1 & Hard recovery disabled \\
+\texttt{nis\_off} & Leader ckpt & 300 & 221/79 & 0 & 0.200 & 487.7 & NIS gate disabled \\
+\texttt{mpc\_filter\_off} & Leader ckpt & 300 & 221/79 & 0 & 0.200 & 357.0 & MPC filter/AEB off \\
+\hline
+\end{tabular}
